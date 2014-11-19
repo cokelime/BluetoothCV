@@ -299,9 +299,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2{
 
 		Core.putText(mRgba, lx.toString() + "," + ty.toString(), boundRect.tl(), 0/*font*/, 1, new Scalar(255, 0, 0, 255), 3);
 
-		// left bound 50 to 100 right bound 700 750
-		//
-		// high y 0   low y 600
 		
 		Size a = mRgba.size();
 		
@@ -318,13 +315,13 @@ public class MainActivity extends Activity implements CvCameraViewListener2{
 		if(mmDevice != null){
 
 			String msg = null;
-			if(lx < xLeftLimit && rx < xRightLimit && by < yBotLimit){
+			if(lx < xLeftLimit && rx < xRightLimit && ty > yTopLimit && by < yBotLimit){
 				//turn left
 
 				Log.i("CAM", "left");
 				
 				msg = "l";
-			} else if(lx > xLeftLimit && rx > xRightLimit && by < yBotLimit){
+			} else if(lx > xLeftLimit && rx > xRightLimit && ty > yTopLimit && by < yBotLimit){
 				// turn right
 				
 				Log.i("CAM", "right");
